@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.full_name }}{% endblock %}}
+
+{% block content %}
+
+<h1>{{ user.first_name }} {{ user.last_name }}</h1>
+<p>User ID: {{ user.id }}</p>
+
+<form method="POST" action="/users/{{ user.id }}/{{ post.id }}">
+
+        <label for="post_title">Title</label>
+        <input type="text" id="title" name="title" value="{{ post.title }}">
+     <label for="content">content</label>
+        <textarea class="form-control" id="content" name="content">{{ post.content }}</textarea>
+     
+    
+     
+    <button type="submit">Submit Edits</button>
+</form>
+
+<form><button class="btn btn-danger btn-sm"
+    formaction="/users/{{ user.id }}/{{ post.id }}/delete"
+    formmethod="POST">Delete
+</button></form>
+
+
+{% endblock %}

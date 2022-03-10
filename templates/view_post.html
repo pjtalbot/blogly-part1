@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}}
+
+{% block content %}
+
+<h1>{{ user.first_name }} {{ user.last_name }}</h1>
+<h2>{{ post.title }}</h2>
+
+<p> {{ post.content }} </p>
+    {% for post in user.posts %}
+
+    {% endfor %}
+
+    <form><button class="btn btn-danger btn-sm"
+        formaction="/users/{{ user.id }}/{{ post.id}}/edit"
+        formmethod="POST">Edit
+</button></form>
+
+
+</ul>
+
+
+
+
+{% endblock %}
