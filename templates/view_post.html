@@ -5,12 +5,20 @@
 {% block content %}
 
 <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+<a href="/users/{{ user.id }}">Return to User</a>
 <h2>{{ post.title }}</h2>
 
 <p> {{ post.content }} </p>
-    {% for post in user.posts %}
-
+<ul>
+    <h3>Tags</h3>
+    {% for tag in tags %}
+    <li><a href="/tags/{{ tag.id }}">{{ tag.name }}</a></li>
     {% endfor %}
+
+</ul>
+
+
+
 
     <form><button class="btn btn-danger btn-sm"
         formaction="/users/{{ user.id }}/{{ post.id}}/edit"

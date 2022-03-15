@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css"
+      rel="stylesheet"
+    />
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,22 +14,29 @@
     {% block head %}
     <h1>Blogly</h1>
     {% endblock %}
-    <ul name="users_list">
+    <nav>
+        <a href="/">Home</a>
+        <a href="/tags">Tags</a>
+        <!-- How can I use Jinja for a dynamic navbar? ex: while viewing a user's post, pass the user.id to use in the href -->
+    </nav>
+   
         {% block content %}
-  <!-- put the content here -->
-  {% endblock %}
+        <ul name="users_list">
+            <form><button class="btn btn-danger btn-sm"
+                formaction="/users/new"
+                formmethod="GET">Add New User
+            </button></form>
         <h2>Users</h2>
         {% for user in users %}
         <li>{{ user.first_name }} {{ user.last_name }} (User ID: {{ user.id }})</li>
+
         <a href="/users/{{ user.id }}">view</a>
-        <form><button class="btn btn-danger btn-sm"
-            formaction="/users/{{ user.id }}/delete"
-            formmethod="POST">Delete
-    </button></form>
         
+
         {% endfor %}
+  <!-- put the content here -->
+  {% endblock %}
+       
         
-    </ul>
-    <a name="add_users" id="add_users" href="/users/new">Add Users</a>
 </body>
 </html>

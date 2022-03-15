@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.full_name }}{% endblock %}}
+
+{% block content %}
+
+
+<h1>Tags</h1>
+
+{% for tag in tags %}
+
+<ul>
+    <li><a href="/tags/{{ tag.id }}">{{ tag.name }}</a></li>
+</ul>
+{% endfor %}
+
+
+
+{% endblock %}

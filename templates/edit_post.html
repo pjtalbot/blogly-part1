@@ -13,6 +13,18 @@
         <input type="text" id="title" name="title" value="{{ post.title }}">
      <label for="content">content</label>
         <textarea class="form-control" id="content" name="content">{{ post.content }}</textarea>
+
+        <h2>Tags</h2>
+        {% for tag in tags %}
+        <ul><input type="checkbox" value="{{ tag.id }}" checked name="tag_checkbox">{{ tag.name }}</ul>
+        {% endfor %}
+
+        <h2>New Tags</h2>
+
+        <label for="tags"Tags></label>
+    <input type="text" data-role="taginput", data-max-tags="5" name='tags' value="">
+    <!-- simpler tag edit or add method. have buttons to delete each tag, and an input for one tag at a time. -->
+
      
     
      
